@@ -2,7 +2,8 @@ import type { Component } from 'solid-js';
 import { createEffect, createMemo, createSignal } from 'solid-js';
 import styles from './App.module.css';
 import { getJsonTypeDefinition } from './formatter';
-import { Box, Grid, TextField } from '@suid/material';
+import { Box, Grid, IconButton, TextField } from '@suid/material';
+import ContentCopyIcon from '@suid/icons-material/ContentCopy';
 
 const App: Component = () => {
   const exampleJson = {
@@ -67,7 +68,7 @@ const App: Component = () => {
       const outputTypeDefinition =
         indentedDefinition === '{}'
           ? ''
-          : `type Output = {\n${indentedDefinition}\n}`;
+          : `export type Output = {\n${indentedDefinition}\n}`;
       return outputTypeDefinition;
     } catch (error) {
       return '';
@@ -97,18 +98,24 @@ const App: Component = () => {
     };
   });
 
+  const maxRows = 24;
+
   return (
     <div class={styles.App}>
-      <h1 class="p-5">MakeCamelType</h1>
+      <h1 class={`p-5`}>
+        <span class={`${styles.themeGrad}`}>MakeCamelTypes</span> from JSON
+        samples
+      </h1>
 
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container>
-          <Grid item xs={6} md={6}>
+      <Box sx={{ flexGrow: 1 }} px={5}>
+        <Grid container spacing={2}>
+          <Grid item xs={6} md={6} textAlign="left">
+            <h2>Input: JSON Examples</h2>
+            Enter a single JSON object or an array of JSON objects.
             <TextField
-              label="Multiline"
               multiline
-              minRows={4}
-              maxRows={48}
+              minRows={maxRows}
+              maxRows={maxRows}
               fullWidth
               value={inputObj()}
               onChange={e => {
@@ -116,22 +123,35 @@ const App: Component = () => {
               }}
             />
           </Grid>
-          <Grid item xs={6} md={6}>
-            {/* 出力部分をtextarea要素に変更 */}
-            <textarea
-              id="output"
-              class={styles.LeftAlignedPre}
-              readonly
-              style={{
-                'white-space': 'pre-wrap',
-                'text-align': 'left',
-                width: '100%',
-                height: '100%',
-                padding: '12px',
-              }}
-              value={outPut()} // outPut関数の結果を表示
-            />
-            <button id="copy-button">Copy to Clipboard</button>
+
+          <Grid item xs={6} md={6} textAlign="left">
+            <h2>Output: TypeScript Interfaces</h2>
+            Use this if you want to statically type check interactions with JSON
+            objects.
+            <div style={{ position: 'relative' }}>
+              <div
+                class="p-4 justify-end flex w-full"
+                style={{ position: 'absolute', top: 0, right: 0, 'z-index': 2 }}
+              >
+                <IconButton
+                  id="copy-button"
+                  aria-label="add an alarm"
+                  color="primary"
+                >
+                  <ContentCopyIcon />
+                </IconButton>
+              </div>
+              <TextField
+                id="output"
+                multiline
+                minRows={maxRows}
+                maxRows={maxRows}
+                fullWidth
+                class="bg-gray-100 border-1"
+                value={outPut()}
+                inputProps={{ readonly: true }}
+              />
+            </div>
           </Grid>
         </Grid>
       </Box>

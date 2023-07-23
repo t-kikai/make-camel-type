@@ -35,3 +35,10 @@
 .LeftAlignedPre {
   text-align: left;
 }
+
+.themeGrad {
+  background: linear-gradient(270.05deg, #00e0df 5.4%, #007ffe 99.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
