@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@solidjs/meta':
+    specifier: ^0.28.5
+    version: 0.28.5(solid-js@1.7.6)
   '@suid/icons-material':
     specifier: ^0.6.6
     version: 0.6.6(solid-js@1.7.6)
@@ -893,6 +896,14 @@ packages:
     dependencies:
       solid-js: 1.7.6
     dev: true
+
+  /@solidjs/meta@0.28.5(solid-js@1.7.6):
+    resolution: {integrity: sha512-52luJR6hVNMA1K8Od5OD0d8WVz/svqZG4is8lrDimiUGxdia3DzuLF+pK56dnEzbNt9cA42qVFL134U9LkC9Gg==}
+    peerDependencies:
+      solid-js: '>=1.4.0'
+    dependencies:
+      solid-js: 1.7.6
+    dev: false
 
   /@suid/base@0.8.4(solid-js@1.7.6):
     resolution: {integrity: sha512-LSsqYVx3D3GSRUgVpZ5gaJec0JY2q1N2ZTzradQeoteEmdb+qG6ltXBik/lfaMn/+QOkO+ROyc2H4vlCTKlZaA==}

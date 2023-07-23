@@ -4,15 +4,19 @@ import styles from './App.module.css';
 import { getJsonTypeDefinition } from './formatter';
 import { Box, Grid, IconButton, TextField } from '@suid/material';
 import ContentCopyIcon from '@suid/icons-material/ContentCopy';
+import { MetaProvider, Title, Link } from '@solidjs/meta';
 
 const App: Component = () => {
-  const ogImage = document.createElement('meta');
-  ogImage.setAttribute('property', 'og:image');
-  ogImage.setAttribute(
-    'content',
-    'https://make-camel-type.vercel.app/images/ogp.png',
-  );
-  document.head.appendChild(ogImage);
+  <MetaProvider>
+    <div class="Home">
+      <Title>Title of page</Title>
+      <Link rel="canonical" href="http://solidjs.com/" />
+      <meta
+        property="og:image"
+        content="https://make-camel-type.vercel.app/images/ogp.png"
+      />
+    </div>
+  </MetaProvider>;
 
   const exampleJson = {
     name: 'John Doe',
