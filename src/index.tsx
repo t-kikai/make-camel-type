@@ -4,7 +4,6 @@ import { render } from 'solid-js/web';
 import './index.css';
 import App from './App';
 import { createEffect } from 'solid-js';
-import { Router } from '@solidjs/router';
 
 const root = document.getElementById('root');
 
@@ -15,9 +14,9 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 }
 
 function setOGPMetaTags(): void {
-  const title = 'MakeCamelTypes from JSON samples';
-  const description = 'MakeCamelTypes from JSON samples';
-  const imageUrl = 'https://make-camel-type.vercel.app/images/ogp.png';
+  const title = 'Your Page Title';
+  const description = 'Your page description';
+  const imageUrl = 'URL to your image';
   const pageUrl = window.location.href;
 
   document.title = title;
@@ -27,6 +26,7 @@ function setOGPMetaTags(): void {
     { property: 'og:description', content: description },
     { property: 'og:image', content: imageUrl },
     { property: 'og:url', content: pageUrl },
+    // 他のOGPメタタグも必要に応じて追加
   ];
 
   metaTags.forEach(metaTag => {
@@ -39,10 +39,6 @@ function setOGPMetaTags(): void {
 
 render(() => {
   createEffect(setOGPMetaTags);
-
-  return (
-    <Router>
-      <App />
-    </Router>
-  );
+  return <App />;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 }, root!);
