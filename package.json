@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@solidjs/meta": "^0.28.5",
+    "@solidjs/router": "^0.8.2",
     "@suid/icons-material": "^0.6.6",
     "@suid/material": "^0.13.2",
     "@suid/vite-plugin": "^0.1.4",

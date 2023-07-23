@@ -4,6 +4,7 @@ import { render } from 'solid-js/web';
 import './index.css';
 import App from './App';
 import { createEffect } from 'solid-js';
+import { Router } from '@solidjs/router';
 
 const root = document.getElementById('root');
 
@@ -38,5 +39,10 @@ function setOGPMetaTags(): void {
 
 render(() => {
   createEffect(setOGPMetaTags);
-  return <App />;
+
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
 }, root!);
