@@ -1,0 +1,9 @@
+{
+	"nuxt.isNuxtApp": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"source.fixAll.stylelint": true,
+		"source.addMissingImports": true
+	},
+	"typescript.preferences.importModuleSpecifier": "non-relative"
+}
