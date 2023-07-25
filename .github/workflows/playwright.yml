@@ -16,7 +16,7 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           # 必要に応じて pnpm のバージョンを変更してください
-          version: 7.1.0
+          version: 8.6.9
       - name: Install dependencies
         run: pnpm install
       - name: Install Playwright Browsers
