@@ -74,4 +74,6 @@ export default defineConfig({
     url: 'http://localhost:3000',
     reuseExistingServer: process.env.CI == null,
   },
+  snapshotPathTemplate:
+    '{snapshotDir}/{testFilePath}-screenshots/{arg}-{projectName}{ext}',
 });
