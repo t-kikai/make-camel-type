@@ -111,7 +111,7 @@ const App: Component = () => {
         <Grid container spacing={2}>
           <Grid item xs={6} md={6} textAlign="left">
             <h2>Input: JSON Examples</h2>
-            Enter a single JSON object or an array of JSON objects.
+            JSON データを入力してください
             <TextField
               multiline
               minRows={maxRows}
