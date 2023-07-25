@@ -12,32 +12,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-// function setOGPMetaTags(): void {
-//   const title = 'Your Page Title';
-//   const description = 'Your page description';
-//   const imageUrl = 'URL to your image';
-//   const pageUrl = window.location.href;
-
-//   document.title = title;
-
-//   const metaTags = [
-//     { property: 'og:title', content: title },
-//     { property: 'og:description', content: description },
-//     { property: 'og:image', content: imageUrl },
-//     { property: 'og:url', content: pageUrl },
-//     // 他のOGPメタタグも必要に応じて追加
-//   ];
-
-//   metaTags.forEach(metaTag => {
-//     const tag = document.createElement('meta');
-//     tag.setAttribute('property', metaTag.property);
-//     tag.setAttribute('content', metaTag.content);
-//     document.head.appendChild(tag);
-//   });
-// }
-
 render(() => {
-  // createEffect(setOGPMetaTags);
   return <App />;
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 }, root!);
